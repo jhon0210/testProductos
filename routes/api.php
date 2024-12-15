@@ -2,18 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\productController;
 
+Route::get('/products/listar', [productController::class, 'listarProducto']);
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::post('/products/crear', [productController::class, 'crearProducto']);
 
-Route::get('/products', [productController::class, 'listarProducto']);
+Route::put('/products/{id}', [productController::class, 'actualizarProducto']);
 
-Route::post('/products', [productController::class, 'crearProducto']);
-
-Route::put('/products', [productController::class, 'actualizarProducto']);
-
-Route::delete('/products/{id}', [productController::class, 'eliminandoProducto']);
+Route::delete('/products/{id}', [productController::class, 'eliminarProducto']);
